@@ -21,18 +21,18 @@ public class BombController {
 	@RequestMapping("/instructions")
 	public ModelAndView instruct(
 			@RequestParam("dif") int dif) {
-		int time = 60;
+		int time = 30;
 		int exTime =10;
 		int ques = 3;
 		switch (dif){
 		case 1:  {
-			time=60;
+			time=30;
 			exTime=10;
 			ques = 3;
 			break;
 		}
 		case 2:  {
-			time=30;
+			time=20;
 			exTime=5;
 			ques = 6;
 			break;
@@ -54,13 +54,13 @@ public class BombController {
 	
 
 	@RequestMapping("/bomb")
-	public ModelAndView bomb(){
-		Bomb bomb = new Bomb();
-		bomb.setTime(60);
-		Thread b = new Thread(bomb);
-		b.start();
+	public ModelAndView bomb(@RequestParam("time") int time,
+			@RequestParam("exTime") int exTime,
+			@RequestParam("ques") int ques){
+		
 		ModelAndView mav = new ModelAndView("bomb");
-		mav.addObject("time", bomb.getTime());
+		mav.addObject("time", time);
+		mav.addObject("exTime", exTime);
 		return mav;
 		
 	}

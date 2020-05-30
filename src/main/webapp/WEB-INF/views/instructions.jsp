@@ -14,7 +14,10 @@
 <p>Each correct answer will gain you ${exTime} more seconds. Each wrong answer will lose you ${exTime } seconds.</p>
 <p>We're all counting on you!</p>
 
-<form action ="/bomb"> 
+<form action ="/bomb" > 
+<input type="hidden" name ="time" value="${time}">
+<input type="hidden" name ="exTime" value="${exTime}">
+<input type="hidden" name ="ques" value="${ques}">
 <button type = submit>Begin</button>
  </form>
 
